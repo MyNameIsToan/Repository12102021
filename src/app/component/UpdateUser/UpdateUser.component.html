@@ -1,0 +1,42 @@
+<br><br><br>
+<div style="width: 50%; text-align: center; margin: 0 auto;">
+  <h3> Update User Information</h3>
+  <form (ngSubmit)="OnSubmit()" [formGroup]="UserForm" style="text-align: left;">
+   <div class="form-group">
+     <label for="">Username:</label>
+     <input type="text"
+       formControlName="Username"
+       class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+     <small id="helpId" *ngIf="!UserForm.get('Username')?.valid && UserForm.get('Username')?.touched" class="form-text text-muted"></small>
+   </div>
+   <div class="form-group">
+    <label for="">Password:</label>
+    <input type="text"
+      formControlName="Password"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Password')?.valid && UserForm.get('Password')?.touched"class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Email: </label>
+    <input type="email"
+      formControlName="Email"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Email')?.valid && UserForm.get('Email')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Firstname:</label>
+    <input type="text"
+      formControlName="Firstname"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Firstname')?.valid && UserForm.get('Firstname')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Lastname:</label>
+    <input type="text"
+      formControlName="Lastname"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Lastname')?.valid && UserForm.get('Lastname')?.touched" class="form-text text-muted"></small>
+  </div><br>
+  <button [hidden]=!UserForm.valid class="btn btn-success" style="width: 100%;">Update</button>
+  </form>
+  </div>

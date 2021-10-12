@@ -1,0 +1,24 @@
+<div class="ComponentArea">
+<br><br><br>
+<div style="width: 50%; text-align: center; margin: 0 auto;">
+  <h3> Update To Do Information</h3>
+  <form (ngSubmit)="OnSubmit()" [formGroup]="NoteForm" style="text-align: left;">
+    <div class="form-group" [hidden]=true>
+      <label for="">ID:</label>
+      <input type="text"
+        formControlName="ID"
+        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+      <small id="helpId" *ngIf="!NoteForm.get('ID')?.valid && NoteForm.get('ID')?.touched" class="form-text text-muted"></small>
+    </div>
+  <div class="form-group">
+    <label for="">Content:</label>
+    <input type="text"
+      formControlName="Content"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!NoteForm.get('Content')?.valid && NoteForm.get('Content')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <br>
+  <button [disabled]=!NoteForm.valid class="btn btn-success" style="width: 100%;">Save</button>
+  </form>
+  </div>
+</div>

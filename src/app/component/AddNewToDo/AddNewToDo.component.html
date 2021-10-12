@@ -1,0 +1,29 @@
+<div class="ComponentArea">
+<br><br><br>
+<div style="width: 50%; text-align: center; margin: 0 auto;">
+  <h3> Please Input User Information</h3>
+  <form (ngSubmit)="OnSubmit()" [formGroup]="NoteForm" style="text-align: left;">
+    <div class="form-group">
+      <label for="">ParentID:</label>
+      <input type="text"
+        formControlName="ParentID"
+        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+      <small id="helpId"class="form-text text-muted"></small>
+    </div>
+  <div class="form-group">
+    <label for="">Content:</label>
+    <input type="text"
+      formControlName="Content"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!NoteForm.get('Content')?.valid && NoteForm.get('Content')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <br>
+  <button [disabled]=!NoteForm.valid class="btn btn-success" style="width: 100%;">Save</button>
+  </form>
+  <div class="Confirmation" [hidden]="IsHidden">
+    <h2>Saved</h2>
+    <hr>
+    <button type="button" class="btn btn-success" (click)="OK()">OK</button>&nbsp;
+  </div>
+  </div>
+</div>

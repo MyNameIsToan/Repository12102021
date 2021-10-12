@@ -1,0 +1,67 @@
+<!-- <br><br><br>
+<div style="width: 50%; text-align: center; margin: 0 auto;">
+  <h3> Please Input User Information</h3>
+  <form (ngSubmit)="OnSubmit()" [formGroup]="UserForm" style="text-align: left;">
+   <div class="form-group">
+     <label for="">Username:</label>
+     <input type="text"
+       formControlName="Username"
+       class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+     <small id="helpId" *ngIf="!UserForm.get('Username')?.valid && UserForm.get('Username')?.touched" class="form-text text-muted"></small>
+   </div>
+   <div class="form-group">
+    <label for="">Password:</label>
+    <input type="text"
+      formControlName="Password"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Password')?.valid && UserForm.get('Password')?.touched"class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Email: </label>
+    <input type="email"
+      formControlName="Email"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Email')?.valid && UserForm.get('Email')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Firstname:</label>
+    <input type="text"
+      formControlName="Firstname"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Firstname')?.valid && UserForm.get('Firstname')?.touched" class="form-text text-muted" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="">Lastname:</label>
+    <input type="text"
+      formControlName="Lastname"
+      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+    <small id="helpId" *ngIf="!UserForm.get('Lastname')?.valid && UserForm.get('Lastname')?.touched" class="form-text text-muted"></small>
+  </div><br>
+  <button [hidden]=!UserForm.valid class="btn btn-success" style="width: 100%;">Save</button>
+  </form>
+  </div> -->
+<div class="ComponentArea">
+  <div class="container">
+    <div class="ButtonArea">
+        <button class="RedirectButton" id="RedirectButton" (click)="OpenRegister()">{{TypeProcess}}</button>
+    </div>
+    <div class="FormArea3 Login">
+      <h1>Sign In Form</h1>
+      <form (ngSubmit)="Login()" [formGroup]="LoginForm">
+          <input class="RegForm Username_Log"type="text" placeholder="Username" formControlName="Username">
+          <input class="RegForm Password_Log" type="password" placeholder="Password" formControlName="Password">
+          <button class="Submit_Login" type="submit">Login</button>
+      </form>
+    </div>
+    <div class="FormArea3"[hidden]=IsHidden>
+        <h1>Sign Up Form</h1>
+        <form (ngSubmit)="OnSubmit()" [formGroup]="UserForm">
+            <input class="RegForm Username_Reg"type="text" placeholder="Username" formControlName="Username">
+            <input class="RegForm Password_Reg" type="password" placeholder="Password" formControlName="Password">
+            <input class="RegForm Email_Reg"type="email" placeholder="Email" formControlName="Email">
+            <input class="RegForm FirstName_Reg"type="text" placeholder="Firstname" formControlName="Firstname">
+            <input class="RegForm LastName_Reg"type="text" placeholder="Lastname" formControlName="Lastname">
+            <button class="Submit_Login" type="submit">Register</button>
+        </form>
+    </div>
+</div>

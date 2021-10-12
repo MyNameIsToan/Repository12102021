@@ -1,0 +1,71 @@
+<div class="ComponentArea">
+  <div class="container">
+    <h1>THINGS YOU NEED TO DO !</h1>
+    <div class = "content">
+      <div class="ToolsArea">
+        <input type="text" class="SearchBox"  placeholder="SEARCH" [(ngModel)]="keyword">
+        <input type="button" class="btn btn-info ButtonSearch" value="{{SearchType}}" (click)="Search()">
+        <input type="button" class="btn btn-success ButtonAdd" value="Add New" (click)="AddNew()">
+        <input type="button" class="btn btn-primary Finish" value="{{ShowFinish}}" (click)="Finish()">
+      </div>
+        <div id="BoxContent">
+          <table class="table">
+            <div *ngFor="let note1 of ListOfNote">
+              <tr *ngIf="note1.parentid.toString() === Condition">
+                <td style="width: 10em;">
+                  <input class="FinishCheck" type="checkbox" [checked]="note1.isfinish === 1" (click)="UpdateFinish(note1.id)"/><br>
+                  <input type="button" class="Child" [value]="TypeProcess" *ngIf="note1.haschild === 1" (click)="ShowChild(note1.id)"/>
+                </td>
+                <td style="width: 20em;">
+                  <b>{{note1.id}}. {{note1.content}}</b><br>
+                  Create By: {{note1.username}}
+                </td>
+                <td style="width: 15em;"></td>
+                <td style="width: 5em;">
+                  <button type="button" class="btn btn-info" (click)="EditNote(note1.id,note1.content)">Edit</button>
+                </td>
+                <td style="width: 5em;">
+                  <button type="button" class="btn btn-danger" (click)="RemoveNote(note1.id)">Remove</button>
+                </td>
+              </tr>
+              <div *ngFor="let note2 of ListOfNote" style="width: 100%;">
+                <tr *ngIf="note2.parentid === note1.id && note2.id !== note1.id && note2.parentid === ParentID" [hidden]="IsHideChild">
+                  <td style="width: 10em;" >
+                    <input class="FinishCheck" type="checkbox" [checked]="note2.isfinish === 1" (click)="UpdateFinish(note2.id)"/>
+                  </td>
+                  <td style="width: 20em;"></td>
+                  <td style="width: 15em;">
+                    {{note2.content}}<br>
+                  </td>
+                  <td style="width: 5em;">
+                    <button type="button" class="btn btn-info" (click)="EditNote(note2.id, note2.content)">Edit</button>
+                  </td>
+                  <td style="width: 5em;">
+                    <button type="button" class="btn btn-danger" (click)="RemoveNote(note2.id)">Remove</button>
+                  </td>
+                </tr>
+              </div>
+          </div>
+          </table>
+        </div>
+    </div>
+    <div class="Confirmation" [hidden]="IsHidden">
+        <h2>Ensure that you want to remove</h2>
+        <hr>
+        <button type="button" class="btn btn-info" (click)="Cancel()">Cancel</button>&nbsp;
+        <button type="button" class="btn btn-danger" (click)="Remove()">Remove</button>
+    </div>
+
+    <div class="Confirmation AddNew" [hidden]="IsHiddenAddNew">
+      <h2>Please input new content of To Do</h2>
+      <hr>
+      <form (ngSubmit)="OnSubmit()" [formGroup]="NoteForm">
+        <input class="ContentNew" type="text" formControlName="Content">
+        <br>
+        <input type="button"class="btn btn-info"  (click)="CancelAdd()" value="Cancel"/>&nbsp;
+        <input type="submit"class="btn btn-success" value="Create">
+      </form>
+    </div>
+  </div>
+</div>
+
